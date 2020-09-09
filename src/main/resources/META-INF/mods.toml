@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[33,)"
+license="LGPL3"
+issueTrackerURL="http://github.com/SteamNSteel/SteamNSteel/issues"
+
+[[mods]]
+    modId="steamnsteel"
+    version="${file.jarVersion}"
+    displayName="SteamNSteel"
+    #updateJSONURL="http://myurl.me/" #optional
+    displayURL="http://github.com/SteamNSteel/SteamNSteel/"
+    logoFile="steamnsteel.png" #optional
+    credits="Thanks to Scott Killen and Foudroyant Factotum for their contributions prior to this rewrite"
+    authors="Rorax, AtomicBlom" #optional
+    description='''
+    Heavy Machinary, epic automation, with steam and steel.
+    '''
+
+[[dependencies.steamnsteel]]
+    modId="forge"
+    mandatory=true
+    versionRange="[33,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.steamnsteel]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.2]"
+    ordering="NONE"
+    side="BOTH"
