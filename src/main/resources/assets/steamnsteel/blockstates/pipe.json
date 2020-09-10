@@ -1,0 +1,285 @@
+{
+  "multipart": [
+
+    {
+      "__comment": "Set up double-flange-terminus pipes",
+      "when": {"type": "straight_terminus", "up": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_double_flange"
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "east": "true", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_double_flange", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "north": "true", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_double_flange", "x": 90
+      }
+    },
+
+
+    {
+      "__comment": "Set up single-flange-terminus pipes",
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "up": "true", "down": "false"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange"
+      }
+    },
+    {
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "up": "false", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange"
+      }
+    },
+    {
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "east": "true", "west": "false"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange", "x": 90, "y": 90
+      }
+    },
+    {
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "east": "false", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange", "x": 90, "y": 90
+      }
+    },
+    {
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "north": "true", "south": "false"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange", "x": 90
+      }
+    },
+    {
+      "__TODO": "CORRECT ROTATIONS",
+      "when": {"type": "straight_terminus", "north": "false", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_terminus_single_flange", "x": 90
+      }
+    },
+
+
+    {
+      "__comment": "Terminus flanges, note that the rotations are backwards, connections to the north result in a flange on the south",
+      "when": {"type": "straight_terminus", "north": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 270
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 90
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "east": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 270, "y": 90
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 180
+      }
+    },
+    {
+      "when": {"type": "straight_terminus", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 0
+      }
+    },
+
+
+    {
+      "when": {"type": "straight", "up": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_straight"
+      }
+    },
+    {
+      "when": {"type": "straight", "east": "true", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_straight", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "straight", "north": "true", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_straight", "x": 90
+      }
+    },
+
+
+    {
+      "when": {"type": "elbow", "south": "true", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow"
+      }
+    },
+    {
+      "when": {"type": "elbow", "north": "true", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "north": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 180
+      }
+    },
+    {
+      "when": {"type": "elbow", "south": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 270
+      }
+    },
+    {
+      "when": {"type": "elbow", "west": "true", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "east": "true", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "east": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 180, "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "west": "true", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow", "x": 270, "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "west": "true", "north": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow_side", "y": 0
+      }
+    },
+    {
+      "when": {"type": "elbow", "east": "true", "north": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow_side", "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "east": "true", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow_side", "y": 180
+      }
+    },
+    {
+      "when": {"type": "elbow", "west": "true", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_elbow_side", "y": 270
+      }
+    },
+
+    {
+      "__comment": "Elbow flanges, unlike terminus flanges, the rotations are not inverted",
+      "when": {"type": "elbow", "north": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 270
+      }
+    },
+    {
+      "when": {"type": "elbow", "east": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 270, "y": 90
+      }
+    },
+    {
+      "when": {"type": "elbow", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 0
+      }
+    },
+    {
+      "when": {"type": "elbow", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_flange", "x": 180
+      }
+    },
+
+
+
+    {
+      "when": {"type": "multi"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction"
+      }
+    },
+    {
+      "when": {"type": "multi", "north": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap", "x": 90
+      }
+    },
+    {
+      "when": {"type": "multi", "south": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap", "x": 270
+      }
+    },
+    {
+      "when": {"type": "multi", "east": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap", "x": 90, "y": 90
+      }
+    },
+    {
+      "when": {"type": "multi", "west": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap", "x": 90, "y": 270
+      }
+    },
+    {
+      "when": {"type": "multi", "up": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap"
+      }
+    },
+    {
+      "when": {"type": "multi", "down": "true"},
+      "apply": {
+        "model": "steamnsteel:block/pipe_junction_cap", "x": 180
+      }
+    }
+  ]
+}

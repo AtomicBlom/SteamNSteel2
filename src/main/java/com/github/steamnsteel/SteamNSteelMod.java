@@ -1,7 +1,14 @@
 package com.github.steamnsteel;
 
+import com.github.steamnsteel.blocks.PipeBlock;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +20,8 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.ObjectHolder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -77,8 +86,31 @@ public class SteamNSteelMod
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
+
+            final IForgeRegistry<Block> registry = blockRegistryEvent.getRegistry();
+            //TODO: Set properties properly
+            //TODO: Refactor registration
+            registry.register(new PipeBlock(
+                    AbstractBlock.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA)
+            ).setRegistryName("steamnsteel:pipe"));
+        }
+
+        @SubscribeEvent
+        public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
+            final IForgeRegistry<Item> registry = itemRegistryEvent.getRegistry();
+            //TODO: Set properties properly
+            //TODO: Refactor registration
+            //TODO: Custom group
+            registry.register(new BlockItem(BlockLibrary.pipe, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("steamnsteel:pipe"));
+        }
+    }
+
+    @ObjectHolder("steamnsteel")
+    public static class BlockLibrary {
+        public static final PipeBlock pipe;
+
+        static {
+            pipe = null;
         }
     }
 }
