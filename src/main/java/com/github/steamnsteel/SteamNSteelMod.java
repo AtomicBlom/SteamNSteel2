@@ -1,6 +1,11 @@
 package com.github.steamnsteel;
 
+import com.github.steamnsteel.api.steam.ISteamTransportRegistry;
+import com.github.steamnsteel.api.steam.SteamNSteelInitializedEvent;
+import com.github.steamnsteel.api.steam.SteamTransportStateMachine;
+import com.github.steamnsteel.api.steam.SteamTransportWorldStateMachineContainer;
 import com.github.steamnsteel.blocks.PipeBlock;
+import com.github.steamnsteel.jobs.JobManager;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -28,11 +33,14 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("steamnsteel")
+@Mod(Reference.MOD_ID)
 public class SteamNSteelMod
 {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
+    public static ISteamTransportRegistry SteamTransportRegistry;
+    public static SteamTransportWorldStateMachineContainer SteamTransportStateMachineContainer;
+    public static com.github.steamnsteel.jobs.JobManager JobManager;
 
     public SteamNSteelMod() {
         // Register the setup method for modloading
@@ -48,11 +56,20 @@ public class SteamNSteelMod
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    public static void setSteamTransportRegistry(ISteamTransportRegistry steamTransportRegistry) {
+        SteamTransportRegistry = steamTransportRegistry;
+    }
+
     private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+        MinecraftForge.EVENT_BUS.post(new SteamNSteelInitializedEvent(new com.github.steamnsteel.api.steam.SteamTransportRegistry()));
+        SteamTransportStateMachineContainer = new SteamTransportWorldStateMachineContainer();
+        JobManager = new JobManager();
+        JobManager.start();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

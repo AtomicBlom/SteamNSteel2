@@ -1,9 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "loader": "forge:obj",
-  "model": "steamnsteel:models/block/pipes/ss_pipe_straight.obj",
+  "model": "steamnsteel:models/block/pipes/ss_pipe_straight_1f.obj",
+  "flip-v": true,
+  "materialLibraryOverride": "ss_pipe.mtl",
   "textures": {
-    "particle": "steamnsteel:blocks/ss_pipes"
-  },
-  "ambientocclusion": false
+    "particle": "steamnsteel:blocks/ss_pipe"
+  }
 }

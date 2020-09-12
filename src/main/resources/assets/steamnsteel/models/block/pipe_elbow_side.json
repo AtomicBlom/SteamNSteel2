@@ -1,9 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "loader": "forge:obj",
-  "model": "steamnsteel:models/block/pipes/ss_pipe_elbow_side.obj",
+  "model": "steamnsteel:models/block/pipes/ss_pipe_elbow_prone.obj",
+  "flip-v": true,
+  "materialLibraryOverride": "ss_pipe.mtl",
   "textures": {
-    "particle": "steamnsteel:blocks/ss_pipes"
-  },
-  "ambientocclusion": false
+    "particle": "steamnsteel:blocks/ss_pipe"
+  }
 }

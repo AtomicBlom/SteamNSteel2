@@ -29,6 +29,29 @@ archivesBaseName = "${project.mod_id}-${project.minecraft_version}"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
+sourceSets {
+    main {
+        java {
+            srcDirs([
+                    'src/main/java',
+                    'src/api/java',
+            ])
+        }
+    }
+    api {
+        java {
+            srcDirs(['src/api/java'])
+        }
+        compileClasspath = sourceSets.main.compileClasspath
+    }
+}
+
+task apiJar(type: Jar) {
+    from sourceSets.api.output
+    classifier = 'api'
+}
+tasks.build.dependsOn apiJar
+
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
     mappings channel: 'snapshot', version: project.mcp_mappings

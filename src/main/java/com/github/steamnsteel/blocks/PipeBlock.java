@@ -33,6 +33,8 @@ public class PipeBlock extends Block {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        //FIXME: Find a way to define the state container in a less wasteful manner
+
         builder.add(MODEL_TYPE);
         builder.add(CONNECTIONS);
     }
